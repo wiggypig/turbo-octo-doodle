@@ -1,0 +1,84 @@
+    1  git clone https://github.com/ibnesayeed/linkextractor.git
+    2  cd linkextractor
+    3  git checkout demo
+    4  git checkout step0
+    5  tree
+    6  cat linkextractor.py
+    7  ./linkextractor.py http://example.com/
+    8  ls -l linkextractor.py
+    9  python linkextractor.py
+   10  git checkout step1
+   11  tree
+   12  cat Dockerfile
+   13  docker image build -t linkextractor:step1 .
+   14  docker image ls
+   15  cat linkextractor.py
+   16  docker image build -t linkextractor:step2 .
+   17  docker image ls
+   18  git checkout step3
+   19  tree
+   20  cat Dockerfile
+   21  cat main.py
+   22  docker image build -t linkextractor:step3 .
+   23  docker container run -d -p 5000:5000 --name=linkextractor linkextractor:step3
+   24  curl -i http://localhost:5000/api/http://example.com/
+   25  docker container logs linkextractor
+   26  git checkout step4
+   27  tree
+   28  cat docker-compose.yml
+   29  cat www/index.php
+   30  docker-compose up -d --build
+   31  curl -i http://localhost:5000/api/http://example.com/
+   32  sed -i 's/Link Extractor/Super Link Extractor/g' www/index.php
+   33  git reset --hard
+   34  docker-compose down
+   35  git checkout step5
+   36  tree
+   37  docker-compose up -d --build
+   38  docker-compose exec redis redis-cli monitor
+   39  docker stop
+   40  docker ps #
+   41  git status
+   42  git reset --hard
+   43  git status
+   44  docker login
+   45  docker ps #
+   46  docker image push $DOCKERID/linKEXTRACTOR_WEB_1:1.0
+   47  docker image push $DOCKERID/linkextractor_web_1:1.0
+   48  export DOCKERID=mrhorne
+   49  echo $DOCKERID
+   50  docker image push $DOCKERID/linkextractor_web_1:1.0
+   51  docker image push $DOCKERID/linkextractor-web
+   52  docker image push $DOCKERID/linkextractor-web:step5-php
+   53  cd ..
+   54  docker ps #
+   55  docker image push $DOCKERID/linkextractor-web:1.0
+   56  docker image push $DOCKERID/linkextractor-web_1:1.0
+   57  docker image push $DOCKERID/linkextractor_web_1:1.0
+   58  docker push $DOCKERID/linkextractor-web:step5-php
+   59  docker build -t $DOCKERID/linkextractor-web:step5-php
+   60  docker build $DOCKERID/linkextractor-web:step5-php
+   61   docker image build --tag $DOCKERID/linkextractor-web:step5-php
+   62   docker image build --tag $DOCKERID/linkextractor-web:step5-php
+   63  git init
+   64  ls
+   65  cd linkextractor
+   66  ls
+   67  ls www
+   68  ls api
+   69  cd api
+   70  ls
+   71  git init
+   72  ls
+   73  git commit -m "first commit"
+   74  git config user.name wiggypig
+   75  git config user.email "mr.horne@gmail.com"
+   76  git commit -m "first commit"
+   77  git add .
+   78  git status
+   79  git commit -m "first commit"
+   80  git remote add origin https://github.com/wiggypig/turbo-octo-doodle.git
+   81  git branch -M main
+   82  git push -u origin main
+   83  cat commands
+   84  history >> dockerpractice.txt
